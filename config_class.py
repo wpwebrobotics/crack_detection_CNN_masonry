@@ -1,44 +1,4 @@
-"""
-The following code was produced for the Journal paper 
-"Automatic crack classification and segmentation on masonry surfaces using convolutional neural networks and transfer learning"
-by D. Dais, İ. E. Bal, E. Smyrou, and V. Sarhosis published in "Automation in Construction"
-in order to apply Deep Learning and Computer Vision with Python for crack detection on masonry surfaces.
-
-In case you use or find interesting our work please cite the following Journal publication:
-
-D. Dais, İ.E. Bal, E. Smyrou, V. Sarhosis, Automatic crack classification and segmentation on masonry surfaces 
-using convolutional neural networks and transfer learning, Automation in Construction. 125 (2021), pp. 103606. 
-https://doi.org/10.1016/j.autcon.2021.103606.
-
-@article{Dais2021,
-author = {Dais, Dimitris and Bal, İhsan Engin and Smyrou, Eleni and Sarhosis, Vasilis},
-doi = {10.1016/j.autcon.2021.103606},
-journal = {Automation in Construction},
-pages = {103606},
-title = {{Automatic crack classification and segmentation on masonry surfaces using convolutional neural networks and transfer learning}},
-url = {https://linkinghub.elsevier.com/retrieve/pii/S0926580521000571},
-volume = {125},
-year = {2021}
-}
-
-The paper can be downloaded from the following links:
-https://doi.org/10.1016/j.autcon.2021.103606
-https://www.researchgate.net/publication/349645935_Automatic_crack_classification_and_segmentation_on_masonry_surfaces_using_convolutional_neural_networks_and_transfer_learning/stats
-
-The code used for the publication can be found in the GitHb Repository:
-https://github.com/dimitrisdais/crack_detection_CNN_masonry
-
-Author and Moderator of the Repository: Dimitris Dais
-
-For further information please follow me in the below links
-LinkedIn: https://www.linkedin.com/in/dimitris-dais/
-Email: d.dais@pl.hanze.nl
-ResearchGate: https://www.researchgate.net/profile/Dimitris_Dais2
-Research Group Page: https://www.linkedin.com/company/earthquake-resistant-structures-promising-groningen
-YouTube Channel: https://www.youtube.com/channel/UCuSdAarhISVQzV2GhxaErsg  
-
-Your feedback is welcome. Feel free to reach out to explore any options for collaboration.
-"""
+#!/usr/bin/env python3
 
 import os
 import sys
@@ -50,7 +10,8 @@ class Config:
         self.working_folder = working_folder
         
         # Define the mode that will be used when running the code
-        self.mode = 'build_data' # 'train', 'evaluate' or 'build_data'
+        #  self.mode = 'build_data' # 'train', 'evaluate' or 'build_data'
+        self.mode = 'evaluate'
         # Info that will be used as prefix of any output files
         self.info = 'crack_detection'
         # Dimensions of the images that will be fed to the network
@@ -265,10 +226,10 @@ class Config:
         elif self.mode == 'evaluate':
             
             # Define the counter suitably in order to read the correct JSON file etc.
-            self.args['counter'] = 6
+            self.args['counter'] = 19053
             # Define the file with the pretrained weights or the model with weights that will be used to evaluate model
             # e.g. 'crack detection_1_epoch_7_F1_score_dil_0.762.h5'
-            self.args['pretrained_filename'] = 'crack_detection_6_epoch_9_F1_score_dil_0.809.h5'
+            self.args['pretrained_filename'] = 'crack_detection_19053_epoch_10_F1_score_dil_0.759.h5'
             # Define the subfolder where predictions will be stored
             self.args['predictions_subfolder'] = '{}{}/'.format(self.args['predictions'], self.args['pretrained_filename'])
             # Define whether to dilate ground truth mask for the calculation of Precision metric
