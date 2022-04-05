@@ -15,11 +15,12 @@ class Config:
         # Info that will be used as prefix of any output files
         self.info = 'crack_detection'
         # Dimensions of the images that will be fed to the network
-        self.IMAGE_DIMS = (224 , 224 , 3)
+        #self.IMAGE_DIMS = (224 , 224 , 3)
+        self.IMAGE_DIMS = (448 , 448 , 3)
         # Batch size
         self.BS = 4
         # Number of epochs to train the model
-        self.epochs = 10
+        self.epochs = 100   
         # Initial learning rate
         self.INIT_LR = 0.0005
         
@@ -226,10 +227,10 @@ class Config:
         elif self.mode == 'evaluate':
             
             # Define the counter suitably in order to read the correct JSON file etc.
-            self.args['counter'] = 19053
+            self.args['counter'] =  944
             # Define the file with the pretrained weights or the model with weights that will be used to evaluate model
             # e.g. 'crack detection_1_epoch_7_F1_score_dil_0.762.h5'
-            self.args['pretrained_filename'] = 'crack_detection_19053_epoch_10_F1_score_dil_0.759.h5'
+            self.args['pretrained_filename'] = 'crack_detection_23985_epoch_81_F1_score_dil_0.812.h5'
             # Define the subfolder where predictions will be stored
             self.args['predictions_subfolder'] = '{}{}/'.format(self.args['predictions'], self.args['pretrained_filename'])
             # Define whether to dilate ground truth mask for the calculation of Precision metric

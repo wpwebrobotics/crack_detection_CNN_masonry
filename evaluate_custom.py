@@ -28,7 +28,7 @@ args["model_json"] = (
     args["model_json_folder"] + info + "_{}.json".format(args["counter"])
 )
 args["weights"] = args["output"] + "weights/"
-args["pretrained_filename"] = "crack_detection_19053_epoch_10_F1_score_dil_0.759.h5"
+args["pretrained_filename"] = "crack_detection_23985_epoch_81_F1_score_dil_0.812.h5"
 args["binarize"] = True
 args["predictions"] = args["output"] + "predictions/"
 args["save_model_weights"] = "weights"
